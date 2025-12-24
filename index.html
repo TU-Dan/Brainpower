@@ -94,6 +94,7 @@
             letter-spacing: -0.03em;
             margin-bottom: 24px;
             background: linear-gradient(180deg, var(--text-primary) 0%, rgba(134, 134, 139, 0.8) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent; /* 渐变文字效果 */
         }
@@ -164,6 +165,7 @@
             font-size: 1rem;
             color: var(--text-secondary);
             display: -webkit-box;
+            line-clamp: 3;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
@@ -253,6 +255,19 @@
                 </div>
                 <div class="card-footer">
                     <span>Dec 15, 2025</span>
+                    <span class="arrow-icon">→</span>
+                </div>
+            </a>
+
+            <!-- 文章卡片 2 -->
+            <a href="munger_usc_misery.html" class="card">
+                <div>
+                    <div class="card-category">Mental Models</div>
+                    <h3>芒格USC演讲精华：如何保证自己过得悲惨</h3>
+                    <p>《How to Guarantee a Life of Misery》：芒格关于反向思考与“避免愚蠢”的方法论。</p>
+                </div>
+                <div class="card-footer">
+                    <span>Dec 18, 2025</span>
                     <span class="arrow-icon">→</span>
                 </div>
             </a>
