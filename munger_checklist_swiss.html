@@ -117,6 +117,35 @@
             color: #999;
             text-decoration: none;
             font-family: "Microsoft YaHei", sans-serif;
+            margin-bottom: 20px; /* 给上面的按钮留点空间 */
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--text-color);
+            color: #fff;
+            border: none;
+            font-family: "Microsoft YaHei", sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s;
+            margin-bottom: 20px;
+        }
+        
+        .save-btn:hover {
+            background: var(--accent);
+        }
+        
+        .save-btn .sub {
+            display: block;
+            font-size: 11px;
+            font-weight: normal;
+            opacity: 0.8;
+            margin-top: 4px;
         }
 
         /* Main Content */
@@ -439,6 +468,11 @@
                     </a>
                 </li>
             </ul>
+            
+            <button onclick="savePage()" class="save-btn">
+                💾 Save Record
+                <span class="sub">保存当前记录</span>
+            </button>
         </div>
 
         <a href="index.html" class="back-link">← 返回首页 Back to Index</a>
@@ -643,11 +677,45 @@
     </main>
 
     <script>
+        // Checkbox 交互逻辑
         document.querySelectorAll('.checkbox').forEach(box => {
             box.addEventListener('click', function() {
                 this.classList.toggle('checked');
             });
         });
+
+        // 保存页面逻辑
+        function savePage() {
+            // 1. 把所有 textarea 的当前输入值写入到 textContent 中
+            // 这样 outerHTML 才能获取到你输入的内容
+            document.querySelectorAll('textarea').forEach(area => {
+                area.textContent = area.value;
+            });
+
+            // 2. 获取当前时间作为文件名后缀
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const dateStr = `${year}-${month}-${day}`;
+            
+            // 3. 构造文件名: Munger_Checklist_2025-12-24.html
+            const fileName = `Munger_Checklist_${dateStr}.html`;
+
+            // 4. 获取当前页面的完整 HTML
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+            // 5. 创建 Blob 对象并下载
+            const blob = new Blob([htmlContent], {type: 'text/html'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName;
+            
+            // 触发下载
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
 
 </body>
