@@ -109,12 +109,15 @@
 
         /* Section Title */
         .section-title {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-secondary);
+            color: var(--text-primary); /* 改成深色，更清晰 */
             margin: 60px 0 30px;
-            font-weight: 600;
+            font-weight: 700;
+            opacity: 0.8;
+            border-bottom: 1px solid var(--border-color); /* 加条下划线增强分区感 */
+            padding-bottom: 15px;
         }
 
         /* Grid Layout */
@@ -191,6 +194,26 @@
             transform: translateX(0);
         }
 
+        /* Collections Card Specific */
+        .card.collection-card {
+            background-color: #FBFBFD;
+        }
+
+        /* 修复 collection 卡片标题在浅灰背景下对比度不足的问题 */
+        .card.collection-card h3 {
+            color: #1D1D1F; /* 纯黑标题 */
+            font-weight: 700;
+        }
+        
+        .card.collection-card p {
+            color: #86868B; /* 更深的灰色正文 */
+        }
+        
+        .card.collection-card .card-category {
+            font-weight: 800; /* 加粗分类标签 */
+            filter: brightness(0.9); /* 让分类颜色稍微深一点 */
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
@@ -246,6 +269,19 @@
         <!-- 思考模块 -->
         <div class="section-title" id="thoughts">Deep Thoughts</div>
         <div class="grid">
+             <!-- 文章卡片：每日进化 -->
+             <a href="daily_reflection_swiss.html" class="card">
+                <div>
+                    <div class="card-category">Mental Models</div>
+                    <h3>每日进化复盘清单</h3>
+                    <p>结合李录的“智力诚实”与芒格的“智慧复利”，每日必做的反思复盘日课。</p>
+                </div>
+                <div class="card-footer">
+                    <span>Dec 24, 2025</span>
+                    <span class="arrow-icon">→</span>
+                </div>
+            </a>
+
             <!-- 文章卡片 1 -->
             <a href="munger_checklist_swiss.html" class="card">
                 <div>
@@ -259,11 +295,18 @@
                 </div>
             </a>
 
-            <!-- 文章卡片 2 -->
-            <a href="munger_usc_misery.html" class="card">
+
+
+        </div>
+
+        <!-- 收藏模块 -->
+        <div class="section-title" id="collections">Curated Collections</div>
+        <div class="grid">
+             <!-- 收藏卡片：芒格演讲 -->
+             <a href="munger_usc_misery.html" class="card collection-card">
                 <div>
-                    <div class="card-category">Mental Models</div>
-                    <h3>芒格USC演讲精华：如何保证自己过得悲惨</h3>
+                    <div class="card-category">Reading</div>
+                    <h3>芒格USC演讲精华</h3>
                     <p>《How to Guarantee a Life of Misery》：芒格关于反向思考与“避免愚蠢”的方法论。</p>
                 </div>
                 <div class="card-footer">
@@ -272,38 +315,8 @@
                 </div>
             </a>
 
-            <!-- 文章卡片 2 -->
-            <a href="#" class="card">
-                <div>
-                    <div class="card-category">Data Science</div>
-                    <h3>流量错配的识别与修正</h3>
-                    <p>基于有效播放率与留存率的SOP设计，如何通过数据洞察识别内容与人群的Mismatch。</p>
-                </div>
-                <div class="card-footer">
-                    <span>Nov 28, 2025</span>
-                    <span class="arrow-icon">→</span>
-                </div>
-            </a>
-
-            <!-- 文章卡片 3 -->
-            <a href="#" class="card">
-                <div>
-                    <div class="card-category">AI & Product</div>
-                    <h3>冷启动的漏斗分析</h3>
-                    <p>AI原创非故事类内容在站内冷启动期间的表现复盘与曝光策略优化。</p>
-                </div>
-                <div class="card-footer">
-                    <span>Oct 10, 2025</span>
-                    <span class="arrow-icon">→</span>
-                </div>
-            </a>
-        </div>
-
-        <!-- 收藏模块 -->
-        <div class="section-title" id="collections">Curated Collections</div>
-        <div class="grid">
              <!-- 收藏卡片 1 -->
-             <a href="#" class="card" style="background-color: #F5F5F7;">
+             <a href="#" class="card collection-card">
                 <div>
                     <div class="card-category">Reading</div>
                     <h3>微信读书 Top Insights</h3>
@@ -315,18 +328,7 @@
                 </div>
             </a>
 
-            <!-- 收藏卡片 2 -->
-             <a href="#" class="card" style="background-color: #F5F5F7;">
-                <div>
-                    <div class="card-category">Aesthetics</div>
-                    <h3>UI/UX 灵感集</h3>
-                    <p>收集那些令人愉悦的交互细节与极简主义设计案例。</p>
-                </div>
-                <div class="card-footer">
-                    <span>Collection</span>
-                    <span class="arrow-icon">→</span>
-                </div>
-            </a>
+ 
         </div>
 
         <footer>
